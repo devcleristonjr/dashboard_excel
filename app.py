@@ -1,21 +1,36 @@
+# app.py
 import streamlit as st
-from src.ui import sidebar_data_pipeline, kpi_cards
+from src.theme import apply_theme
+from src import data_io as io
 
-st.set_page_config(page_title="Dashboard Excel - SERIN", layout="wide")
+# ===== Configuração da página (sempre primeiro) =====
+st.set_page_config(
+    page_title="Dashboard Excel",
+    page_icon="📊",
+    layout="wide"
+)
 
-st.title("📊 Dashboard Interativo para Excel")
-st.caption("Envie planilhas na barra lateral e navegue pelas páginas acima (Visão Geral, Órgãos, Municípios, Tempo, Dados).")
+# ===== Tema (cores Steam, fontes brancas, etc.) =====
+apply_theme()
 
-# Carrega dados + filtros globais na sidebar (fica disponível em qualquer página).
-df_f, base, logs = sidebar_data_pipeline()
+# ===== Título e descrição =====
+st.title("Dashboard Excel")
+st.caption("")
 
-if base.empty:
-    st.info("Envie uma ou mais planilhas (.xlsx/.xls) na barra lateral. Detectamos automaticamente as abas com os cabeçalhos padrão.")
-    if logs:
-        with st.expander("📄 Log de leitura"):
-            for m in logs: st.caption(m)
-    st.stop()
+st.markdown(
+    """
+## Como usar esta aplicação
 
-# KPIs rápidos na Home (mesmo recorte aplicado)
-kpi_cards(df_f)
-st.success("Pronto! Agora use as páginas no topo para explorar: Visão Geral, Órgãos, Municípios, Tempo e Dados.")
+1. **Faça o upload do arquivo Excel** pela **sidebar** (à esquerda).  
+2. Escolha a **aba** (sheet) da planilha, quando aplicável.  
+3. Navegue entre as páginas no menu lateral:
+   - **Visão Geral**: KPIs e panorama dos dados  
+   - **Órgão**: filtros e análises por órgão  
+   - **Municípios**: distribuição e métricas por município  
+
+> Dica: Você pode trocar o arquivo a qualquer momento na sidebar.
+"""
+)
+
+st.markdown("---")
+

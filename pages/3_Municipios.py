@@ -3,6 +3,10 @@ import streamlit as st
 import pandas as pd
 from src.ui import sidebar_data_pipeline
 from src.charts import municipio_time_series, municipio_valor_por_orgao
+from src.theme import apply_theme
+
+apply_theme()
+
 
 st.title("🏙️ Municípios")
 

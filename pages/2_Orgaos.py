@@ -3,6 +3,10 @@ import streamlit as st
 import pandas as pd
 from src.ui import sidebar_data_pipeline
 from src.charts import org_top_municipios, ato_por_municipio_stacked
+from src.theme import apply_theme
+
+apply_theme()
+
 
 st.title("🏛️ Órgãos")
 

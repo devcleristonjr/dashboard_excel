@@ -3,6 +3,10 @@ import io
 import pandas as pd
 import streamlit as st
 from src.ui import sidebar_data_pipeline, dataframe_pretty, downloads_box
+from src.theme import apply_theme
+
+apply_theme()
+
 
 st.title("🧾 Dados")
 

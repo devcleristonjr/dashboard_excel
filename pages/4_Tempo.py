@@ -2,6 +2,10 @@
 import streamlit as st
 from src.ui import sidebar_data_pipeline
 from src.charts import area_ato_tempo
+from src.theme import apply_theme
+
+apply_theme()
+
 
 st.title("⏱️ Tempo")
 

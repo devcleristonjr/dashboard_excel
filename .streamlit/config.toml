@@ -1,6 +1,12 @@
-
 [theme]
-primaryColor="#0ea5e9"
-backgroundColor="#ffffff"
-secondaryBackgroundColor="#f8fafc"
-textColor="#0f172a"
+# Base escura para garantir contraste
+base = "dark"
+
+# Paleta Steam
+backgroundColor = "#171a21"        # Fundo principal
+secondaryBackgroundColor = "#1b2838" # Sidebar / containers
+textColor = "#FFFFFF"               # Texto branco
+primaryColor = "#66c0f4"            # Destaques (botões/links)
+
+# Tipografia (opcional)
+font = "sans serif"

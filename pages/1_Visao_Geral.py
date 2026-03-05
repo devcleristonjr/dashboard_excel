@@ -1,7 +1,10 @@
-
 import streamlit as st
 from src.ui import sidebar_data_pipeline, kpi_cards
 from src.charts import bar_valor_por_orgao, donut_situacao
+from src.theme import apply_theme
+
+apply_theme()
+
 
 st.title("📌 Visão Geral")
 
